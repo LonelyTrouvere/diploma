@@ -4,8 +4,8 @@ import { currentUser } from "@clerk/nextjs/server";
 import { StreamClient } from "@stream-io/node-sdk";
 
 export default async function provideTokenAction() {
-  const streamKey = process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY;
-  const streamSecret = process.env.CLERK_SECRET_KEY;
+  const streamKey = process.env.NEXT_PUBLIC_STREAM_KEY;
+  const streamSecret = process.env.STREAM_SECRET;
   if (!streamKey || !streamSecret) {
     throw new Error("Configuration not provided");
   }
