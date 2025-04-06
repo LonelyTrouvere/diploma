@@ -39,8 +39,12 @@ export default function CreateMeetingPage() {
     try {
         const id = crypto.randomUUID()
         const call = client.call("default", id)
+
+        const starts_at =  new Date(startTime || Date.now()).toISOString()
+
         await call.getOrCreate({
             data: {
+              starts_at,
                 custom: {
                     description
                 }

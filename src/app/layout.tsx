@@ -1,6 +1,7 @@
 import { type Metadata } from "next";
 import { ClerkProvider } from "@clerk/nextjs";
 import { Geist, Geist_Mono } from "next/font/google";
+import '@stream-io/video-react-sdk/dist/css/styles.css'
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import StreamIOClientProvider from "@/providers/StreamIOClientProviders";
