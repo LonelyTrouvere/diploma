@@ -13,6 +13,10 @@
   },
   "dependencies": {
     "@clerk/nextjs": "^6.12.12",
+    "@emotion/cache": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@mui/material": "^7.0.1",
+    "@mui/material-nextjs": "^7.0.0",
     "@stream-io/node-sdk": "^0.4.19",
     "@stream-io/video-react-sdk": "^1.12.11",
     "clsx": "^2.1.1",

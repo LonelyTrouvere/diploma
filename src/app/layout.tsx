@@ -1,19 +1,19 @@
 import { type Metadata } from "next";
 import { ClerkProvider } from "@clerk/nextjs";
-import { Geist, Geist_Mono } from "next/font/google";
-import '@stream-io/video-react-sdk/dist/css/styles.css'
+import "@stream-io/video-react-sdk/dist/css/styles.css";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import StreamIOClientProvider from "@/providers/StreamIOClientProviders";
+import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
+import { Roboto } from "next/font/google";
+import { ThemeProvider } from "@mui/material/styles";
+import theme from "../theme";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const roboto = Roboto({
+  weight: ["300", "400", "500", "700"],
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-roboto",
 });
 
 export const metadata: Metadata = {
@@ -28,13 +28,15 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider>
-      <html lang="en">
-        <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased flex`}
-        >
+      <html lang="en" className={roboto.variable}>
+        <body className={`antialiased flex`}>
           <StreamIOClientProvider>
-            <Navbar />
-            <main className="max-w-5xl mx-auto px-3 py-6">{children}</main>
+            <AppRouterCacheProvider options={{enableCssLayer: true}}>
+              <ThemeProvider theme={theme}>
+                <Navbar />
+                <main className="w-[87%]">{children}</main>
+              </ThemeProvider>
+            </AppRouterCacheProvider>
           </StreamIOClientProvider>
         </body>
       </html>
